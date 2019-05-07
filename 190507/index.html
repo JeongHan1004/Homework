@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>登录页</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/index.css">
+    <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+</head>
+
+<body>
+    <div class="mydiv">
+        <p class="my_p">登陆管理系统</p>
+        <div class="my_div02">
+            <p class="my_p02">管理员账号：</p>
+            <input type="text" class="int01" name="username">
+        </div>
+        <div class="my_div02">
+            <p class="my_p02">管理员密码：</p>
+            <input type="text" class="int01" name="password">
+        </div>
+        <div class="my_div02">
+            <p class="my_p02">登录验证码：</p>
+            <input type="text" class="int01" name="verify">
+        </div>
+        <div class="my_div02">
+            <img class="yanzhengma" src="img/verifyimg.png" alt="">
+        </div>
+        <div class="my_div02">
+            <input type="button" class="but" value="登录" name="going">
+            <span id="text"></span>
+        </div>
+    </div>
+
+    <script>
+        //表单验证
+        $(function () {
+            $('input[name="going"]').click(function (event) {
+                var $name = $('input[name="username]');
+                var $password = $('input[name="password"]');
+                var $verify = $('input[name="verify"]');
+                var $text = $('#text');
+                var _name = $.trim($name.val());
+                var _password = $.trim($password.val());
+                var _verify = $.trim($verify.val());
+
+                if ('' == _name) {
+                    $text.text('请输入用户名！');
+                    $name.focus();
+                    return;
+                }
+                if ('' == _password) {
+                    $text.text('请输入密码！');
+                    $password.focus();
+                    return;
+                }
+                if ('' == _verify) {
+                    $text.text('请输入验证码！');
+                    $verify.focus();
+                    return;
+                }
+                $text.text('登陆成功；请稍后！');
+            })
+        })
+    </script>
+</body>
+
+</html>
